@@ -21,12 +21,12 @@ import java.util.Map;
 @WebServlet(urlPatterns = {"/"})
 public class ProductController extends HttpServlet {
 
+    ProductDao productDataStore = ProductDaoMem.getInstance();
+    ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+    ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
-
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("categories", productService.getAllProductCategory());
@@ -41,12 +41,17 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
+        WebContext context = new WebContext(req, resp, req.getServletContext());
 
-        String selectedCategoryID = req.getParameter("categorySelect");
 
-        // // Alternative setting of the template context
+        String StringselectedCategoryID = req.getParameter("categorySelect");
+        int selectedCategoryID = Integer.parseInt(StringselectedCategoryID);
+        context.setVariable("categories", productService.getAllProductCategory());
+        context.setVariable("products", productService.getProductsForCategory(selectedCategoryID));
 
-        resp.sendRedirect("/");
+
+        engine.process("product/index.html", context, resp.getWriter());
     }
 
 }
