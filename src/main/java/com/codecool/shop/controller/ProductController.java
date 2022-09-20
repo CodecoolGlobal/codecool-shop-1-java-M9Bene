@@ -21,12 +21,12 @@ import java.util.Map;
 @WebServlet(urlPatterns = {"/"})
 public class ProductController extends HttpServlet {
 
+    ProductDao productDataStore = ProductDaoMem.getInstance();
+    ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+    ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
-
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("categories", productService.getAllProductCategory());
@@ -36,6 +36,21 @@ public class ProductController extends HttpServlet {
         // params.put("category", productCategoryDataStore.find(1));
         // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         // context.setVariables(params);
+        engine.process("product/index.html", context, resp.getWriter());
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
+        WebContext context = new WebContext(req, resp, req.getServletContext());
+
+
+        String StringselectedCategoryID = req.getParameter("categorySelect");
+        int selectedCategoryID = Integer.parseInt(StringselectedCategoryID);
+        context.setVariable("categories", productService.getAllProductCategory());
+        context.setVariable("products", productService.getProductsForCategory(selectedCategoryID));
+
+
         engine.process("product/index.html", context, resp.getWriter());
     }
 

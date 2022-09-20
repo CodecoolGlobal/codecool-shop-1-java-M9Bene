@@ -48,16 +48,20 @@
 
 <div class="container">
     <div class="card">
-        <label for="cars">Sort by Category:</label>
 
-        <select name="cars" id="cars" >
+        <form  name="categoryForm" action="/" method="post">
+
+        <label for="categorySelect">Sort by Category:</label>
+        <select name="categorySelect" id="categorySelect" onchange="categoryForm.submit()" >
             <option th:value="${category.id}" th:text="${category.name}" th:each="category,iterStat : ${categories}"></option>
         </select>
+
+        </form>
 
     </div>
 
     <div id="products" class="row">
-        <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
+        <div class="col col-sm-12 col-md-6 col-lg-4"  th:each="prod,iterStat : ${products}">
             <div class="card">
                 <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
                 <div class="card-header">
