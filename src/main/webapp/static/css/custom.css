@@ -60,3 +60,40 @@
 {
     margin: 0 0 11px;
 }
+
+.header-menu {
+    width: 100%;
+    height: 80px;
+    background-color: #0063ba;
+}
+.logo {
+
+    display: inline-flex;
+}
+.logo-text {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+    margin: 25px 0 0 25px;
+}
+
+.menu-bar {
+    display: inline-flex;
+    color: white;
+}
+.account-bar {
+    display: inline-flex;
+    float: right;
+    padding: 25px 20px;
+
+}
+.menu-bar li {
+    display: inline-flex;
+}
+.cart-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    fill: white;
+}
