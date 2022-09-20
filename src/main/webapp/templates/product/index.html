@@ -48,7 +48,12 @@
 
 <div class="container">
     <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+        <label for="cars">Sort by Category:</label>
+
+        <select name="cars" id="cars" >
+            <option th:value="${category.id}" th:text="${category.name}" th:each="category,iterStat : ${categories}"></option>
+        </select>
+
     </div>
 
     <div id="products" class="row">
