@@ -43,7 +43,7 @@
             <label for="categorySelect">Sort by Category:</label>
             <select name="categorySelect" id="categorySelect" onchange="categoryForm.submit()">
                 <option th:value="${category.id}"
-                        th:text="${category.name} + ${category.id}"
+                        th:text="${category.name}"
                         th:selected="(${category.id} == *{selected_categoryID})"
                         th:each="category,iterStat : ${categories}"></option>
             </select>
@@ -56,7 +56,7 @@
         <label for="supplierSelect">Sort by Category:</label>
         <select name="supplierSelect" id="supplierSelect" onchange="supplierForm.submit()">
             <option th:value="${supplier.id}"
-                    th:text="${supplier.name} + ${supplier.id}"
+                    th:text="${supplier.name}"
                     th:selected="(${supplier.id} == *{selected_supplierID})"
                     th:each="supplier,iterStat : ${suppliers}"></option>
         </select>
