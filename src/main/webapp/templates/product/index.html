@@ -52,18 +52,7 @@
 <div class="container">
     <div class="card">
 
-        <!--
-        <form name="categoryForm" action="/" method="post">
-            <label for="categorySelect">Sort by Category:</label>
-            <select name="categorySelect" id="categorySelect" onchange="categoryForm.submit()">
-                <option th:value="0">All category</option>
-                <option th:value="${category.id}"
-                        th:text="${category.name}"
-                        th:selected="(${category.id} == *{selectedID})"
-                        th:each="category,iterStat : ${categories}"></option>
-            </select>
-        </form>
-        -->
+
             <label for="categoryMenu">Sort by Category:</label>
             <ol>
                 <li id="categoryMenu"
@@ -74,6 +63,33 @@
 
 
     </div>
+    <div class="card">
+
+        <form name="categoryForm" action="/" method="post">
+            <label for="categorySelect">Sort by Category:</label>
+            <select name="categorySelect" id="categorySelect" onchange="categoryForm.submit()">
+                <option th:value="${category.id}"
+                        th:text="${category.name}"
+                        th:selected="(${category.id} == *{selected_categoryID})"
+                        th:each="category,iterStat : ${categories}"></option>
+            </select>
+        </form>
+
+    </div>
+    <div class="card">
+
+        <form name="supplierForm" action="/" method="post">
+            <label for="supplierSelect">Sort by Category:</label>
+            <select name="supplierSelect" id="supplierSelect" onchange="supplierForm.submit()">
+                <option th:value="${supplier.id}"
+                        th:text="${supplier.name}"
+                        th:selected="(${supplier.id} == *{selected_supplierID})"
+                        th:each="supplier,iterStat : ${suppliers}"></option>
+            </select>
+        </form>
+
+    </div>
+
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
