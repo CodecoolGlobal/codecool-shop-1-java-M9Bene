@@ -47,8 +47,12 @@ public class ProductController extends HttpServlet {
 
         String StringselectedCategoryID = req.getParameter("categorySelect");
         int selectedCategoryID = Integer.parseInt(StringselectedCategoryID);
+
+        System.out.println("serverPost : " + selectedCategoryID);
+
         context.setVariable("categories", productService.getAllProductCategory());
         context.setVariable("products", productService.getProductsForCategory(selectedCategoryID));
+        context.setVariable("selectedID",selectedCategoryID );
 
 
         engine.process("product/index.html", context, resp.getWriter());
