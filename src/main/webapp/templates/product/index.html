@@ -34,12 +34,26 @@
 <body>
 
 <div class="header-menu">
-    <div class="logo"><h1 class="logo-text">MovieRelics</h1></div>
+    <div class="logo"><h1 class="logo-text"><span class="logo-text-word">M</span>ovie<span class="logo-text-word">R</span>elics</h1></div>
+    <div class="modalForCategory modalDisplayHidden">
+        <ul>
+            <li th:each="category,iterStat : ${categories}">
+                <a th:href="@{'/?categoryID=' + ${category.id}}" th:text="${category.name}"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="modalForSupplier modalDisplayHidden">
+        <ul>
+            <li th:each="supplier,iterStat : ${suppliers}">
+                <a th:href="@{'/?supplierID=' + ${supplier.id}}" th:text="${supplier.name}"></a>
+            </li>
+        </ul>
+    </div>
     <div class="menu-bar">
 
         <li>
-            <ol>Shop by category</ol>
-            <ol>Gaming</ol>
+            <ol class="categoryMenuButton">Shop by Category</ol>
+            <ol class="supplierMenuButton">Shop by Supplier</ol>
             <ol>Gifting</ol>
         </li>
     </div>
@@ -49,53 +63,14 @@
     </div>
 </div>
 
+
 <div class="container">
-    <div class="card">
-            <label for="categoryMenu">Sort by Category:</label>
-            <ol>
-                <a th:href="@{'/?categoryID=' + ${category.id}}" id="categoryMenu" th:text="${category.name}" th:each="category,iterStat : ${categories}" ></a>
-            </ol>
-    </div>
-
-    <div class="card">
-            <label for="supplierMenu">Sort by Category:</label>
-            <ol>
-                <a th:href="@{'/?supplierID=' + ${supplier.id}}" id="supplierMenu" th:text="${supplier.name}" th:each="supplier,iterStat : ${suppliers}" ></a>
-            </ol>
-    </div>
-
-    <div class="card">
-
-        <form name="categoryForm" action="/" method="post">
-            <label for="categorySelect">Sort by Category:</label>
-            <select name="categorySelect" id="categorySelect" onchange="categoryForm.submit()">
-                <option th:value="${category.id}"
-                        th:text="${category.name}"
-                        th:selected="(${category.id} == *{selected_categoryID})"
-                        th:each="category,iterStat : ${categories}"></option>
-            </select>
-        </form>
-
-    </div>
-    <div class="card">
-
-        <form name="supplierForm" action="/" method="post">
-            <label for="supplierSelect">Sort by Category:</label>
-            <select name="supplierSelect" id="supplierSelect" onchange="supplierForm.submit()">
-                <option th:value="${supplier.id}"
-                        th:text="${supplier.name}"
-                        th:selected="(${supplier.id} == *{selected_supplierID})"
-                        th:each="supplier,iterStat : ${suppliers}"></option>
-            </select>
-        </form>
-
-    </div>
 
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
-                <img class="" src="http://placehold.it/400x250/000/fff"
+                <img class="productImage" src="http://placehold.it/400x250/000/fff"
                      th:height="200"
                      th:width="250"
                      th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt=""/>
@@ -108,7 +83,7 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <a class="btn btn-success" href="#">Add to cart</a>
+                        <a class="btn btn-success buttonAddToCart" href="#">Add to cart</a>
                     </div>
                 </div>
             </div>
