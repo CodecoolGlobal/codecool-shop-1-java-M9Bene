@@ -4,6 +4,7 @@ import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.model.Product;
 import com.codecool.shop.service.ProductService;
 import com.codecool.shop.config.TemplateEngineUtil;
 import org.thymeleaf.TemplateEngine;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet(urlPatterns = {"/"})
@@ -44,15 +46,21 @@ public class ProductController extends HttpServlet {
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
+        System.out.println(req.getParameter("categoryID"));
 
-        String StringselectedCategoryID = req.getParameter("categorySelect");
+        String StringselectedCategoryID = req.getParameter("categoryID");
         int selectedCategoryID = Integer.parseInt(StringselectedCategoryID);
 
-        System.out.println("serverPost : " + selectedCategoryID);
 
+        System.out.println("second step: " + selectedCategoryID);
         context.setVariable("categories", productService.getAllProductCategory());
-        context.setVariable("products", productService.getProductsForCategory(selectedCategoryID));
-        context.setVariable("selectedID",selectedCategoryID );
+        context.setVariable("products2", productService.getProductsForCategory(selectedCategoryID));
+        List< Product> products =  productService.getProductsForCategory(selectedCategoryID);
+        for (Product product :
+                products) {
+            System.out.println(product.getName());
+        }
+        //context.setVariable("selectedID",selectedCategoryID );
 
 
         engine.process("product/index.html", context, resp.getWriter());

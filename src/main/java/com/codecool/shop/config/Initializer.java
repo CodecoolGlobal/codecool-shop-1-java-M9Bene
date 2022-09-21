@@ -33,18 +33,18 @@ public class Initializer implements ServletContextListener {
         //setting up a new product category
 
 
-        ProductCategory ruhák = new ProductCategory("ruhák", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(ruhák);
+        ProductCategory Costumes = new ProductCategory("Costumes", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
+        productCategoryDataStore.add(Costumes);
 
-        ProductCategory ajándék = new ProductCategory("ajándék", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(ajándék);
+        ProductCategory Gifts = new ProductCategory("Gifts", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
+        productCategoryDataStore.add(Gifts);
 
-        ProductCategory figurak = new ProductCategory("figurak", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(figurak);
+        ProductCategory Figures = new ProductCategory("Figures", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
+        productCategoryDataStore.add(Figures);
 
         //setting up products and printing it
-        productDataStore.add(new Product("ajándék", new BigDecimal("49.9"), "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", ajándék, amazon));
-        productDataStore.add(new Product("figurak", new BigDecimal("479"), "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", figurak, amazon));
-        productDataStore.add(new Product("ruhák", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", ruhák, amazon));
+        productDataStore.add(new Product("Soft toy", new BigDecimal("49.9"), "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", Gifts, amazon));
+        productDataStore.add(new Product("Puppet", new BigDecimal("479"), "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", Figures, amazon));
+        productDataStore.add(new Product("Batman Suit", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", Costumes, amazon));
     }
 }

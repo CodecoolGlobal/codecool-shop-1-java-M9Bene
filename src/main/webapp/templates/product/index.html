@@ -28,6 +28,7 @@
     <!-- End of Bootstrap components -->
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
+    <script src="static/js/main.js" defer></script>
 </head>
 
 <body>
@@ -51,15 +52,26 @@
 <div class="container">
     <div class="card">
 
+        <!--
         <form name="categoryForm" action="/" method="post">
             <label for="categorySelect">Sort by Category:</label>
             <select name="categorySelect" id="categorySelect" onchange="categoryForm.submit()">
+                <option th:value="0">All category</option>
                 <option th:value="${category.id}"
-                        th:text="${category.name} + ${category.id}"
+                        th:text="${category.name}"
                         th:selected="(${category.id} == *{selectedID})"
                         th:each="category,iterStat : ${categories}"></option>
             </select>
         </form>
+        -->
+            <label for="categoryMenu">Sort by Category:</label>
+            <ol>
+                <li id="categoryMenu"
+                th:text="${category.name}"
+                th:each="category,iterStat : ${categories}"
+                th:onclick="alertMessage([[${category.id}]])"></li>
+            </ol>
+
 
     </div>
 
