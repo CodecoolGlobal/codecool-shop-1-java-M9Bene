@@ -51,18 +51,19 @@
 
 <div class="container">
     <div class="card">
-
-
             <label for="categoryMenu">Sort by Category:</label>
             <ol>
-                <li id="categoryMenu"
-                th:text="${category.name}"
-                th:each="category,iterStat : ${categories}"
-                th:onclick="alertMessage([[${category.id}]])"></li>
+                <a th:href="@{'/?categoryID=' + ${category.id}}" id="categoryMenu" th:text="${category.name}" th:each="category,iterStat : ${categories}" ></a>
             </ol>
-
-
     </div>
+
+    <div class="card">
+            <label for="supplierMenu">Sort by Category:</label>
+            <ol>
+                <a th:href="@{'/?supplierID=' + ${supplier.id}}" id="supplierMenu" th:text="${supplier.name}" th:each="supplier,iterStat : ${suppliers}" ></a>
+            </ol>
+    </div>
+
     <div class="card">
 
         <form name="categoryForm" action="/" method="post">

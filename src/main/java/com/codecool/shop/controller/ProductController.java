@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @WebServlet(urlPatterns = {"/"})
 public class ProductController extends HttpServlet {
@@ -33,18 +34,25 @@ public class ProductController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        if (req.getParameter("categoryID") != null) {
+            String IdFromURL = req.getParameter("categoryID");
+            int convertedIDFromURL = Integer.parseInt(IdFromURL);
+            context.setVariable("products", productService.getProductsForCategory(convertedIDFromURL));
+        } else if (req.getParameter("supplierID") != null){
+            String IdFromURL = req.getParameter("supplierID");
+            int convertedIDFromURL = Integer.parseInt(IdFromURL);
+            context.setVariable("products", productService.getProductsForSupplier(convertedIDFromURL));
+        } else {
+            //  GET ALL PRODUCTS
+            context.setVariable("products", productService.getAllProducts());
+
+        }
+
         // CHOOSABLE CATEGORIES FOR SORT
         context.setVariable("categories", productService.getAllProductCategory());
         // CHOOSABLE SUPPLIERS FOR SORT
         context.setVariable("suppliers", productService.getAllProductSupplier());
-        //  GET ALL PRODUCTS
-        context.setVariable("products", productService.getAllProducts());
 
-        // // Alternative setting of the template context
-        // Map<String, Object> params = new HashMap<>();
-        // params.put("category", productCategoryDataStore.find(1));
-        // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
-        // context.setVariables(params);
         engine.process("product/index.html", context, resp.getWriter());
 
     }
