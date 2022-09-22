@@ -25,7 +25,11 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
 
     @Override
     public void add(Product product) {
-        data.add(product);
+        if(data.contains(product)){
+            product.setQuantity(product.getQuantity() + 1);
+        }else{
+            data.add(product);
+        }
     }
 
     @Override
