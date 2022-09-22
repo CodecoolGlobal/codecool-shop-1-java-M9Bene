@@ -53,7 +53,7 @@ public class ProductController extends HttpServlet {
         // CHOOSABLE SUPPLIERS FOR SORT
         context.setVariable("suppliers", productService.getAllProductSupplier());
 
-        engine.process("product/index.html", context, resp.getWriter());
+        engine.process("product/shopping_cart.html", context, resp.getWriter());
 
     }
 
@@ -70,17 +70,14 @@ public class ProductController extends HttpServlet {
             //   SELECTED
             context.setVariable("selected_categoryID",selectedCategoryID );
 
-        } else if (req.getParameter("supplierSelect") != null) {
             //        SORT BY SUPPLIER
+        } else if (req.getParameter("supplierSelect") != null) {
             String StringselectedSupplierID = req.getParameter("supplierSelect");
             int selectedSupplierID = Integer.parseInt(StringselectedSupplierID);
             context.setVariable("products", productService.getProductsForSupplier(selectedSupplierID));
             //   SELECTED
             context.setVariable("selected_supplierID",selectedSupplierID );
-
         }
-
-
         // CHOOSABLE CATEGORIES FOR SORT
         context.setVariable("categories", productService.getAllProductCategory());
         // CHOOSABLE SUPPLIERS FOR SORT
