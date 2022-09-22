@@ -197,6 +197,41 @@ a {
     margin: 0 auto;
 }
 
+.checkout {
+    text-align: center;
+    align-items: center;
+}
+
+.billing-data-form input, .billing-data-form textarea {
+    background: white;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+    width: 50%;
+}
+
+.billing-data-form div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#copy-billing-address {
+    display: flex;
+    flex-direction: row;
+    background-color: #6d90a1;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+}
+
 
  /* SHOPPING CART  */
 .cart-container {
