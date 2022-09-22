@@ -234,6 +234,18 @@ a {
     padding: 0.8vw;
 }
 
+#checkout-button {
+    background-color: #008000;
+    color: white;
+    text-decoration: none;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+}
+
 
  /* SHOPPING CART  */
 .cart-container {
