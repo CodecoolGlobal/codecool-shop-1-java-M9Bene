@@ -197,6 +197,8 @@ a {
     margin: 0 auto;
 }
 
+
+/* CHECKOUT */
 .checkout {
     text-align: center;
     align-items: center;
@@ -275,4 +277,29 @@ a {
 
 .plus-minus-remove-quantity:hover {
     background-color: #0b5bdb;
+}
+
+
+/* PAYMENT */
+.payment {
+    text-align: center;
+    align-items: center;
+}
+
+.payment-data-form input, .payment-data-form textarea {
+    background: white;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+    width: 50%;
+}
+
+.payment-data-form div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
