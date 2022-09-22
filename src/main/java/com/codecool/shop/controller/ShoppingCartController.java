@@ -35,7 +35,7 @@ public class ShoppingCartController extends HttpServlet {
             Product product = productDao.find(productId);
             shoppingCart.add(product);
         }
-
+        context.setVariable("products",shoppingCart.getAllProducts());
 
         PrintWriter out = response.getWriter();
 

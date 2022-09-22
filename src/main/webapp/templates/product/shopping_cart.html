@@ -41,14 +41,17 @@
     </div>
     <div class="list-of-products">
         <table>
-            <tr>
+            <tr th:each="prod,iterStat : ${products}">
                 <td>
-                    IMAGE
+                    <img class="productImage" src="http://placehold.it/400x250/000/fff"
+                         th:height="100"
+                         th:width="120"
+                         th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt=""/>
                 </td>
-                <td>
-                    PRODUCT NAME
+                <td  th:text="${prod.name}">
+                    PRODUCT NAME,
                 </td>
-                <td>
+                <td th:text="${prod.getPrice()}">
                     PRICE
                 </td>
                 <td>
@@ -61,7 +64,7 @@
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-success plus-minus-remove-quantity">
+                    <button class="btn btn-success plus-minus-remove-quantity buttonRemove" th:attr="data-product-id=${prod.id}">
                         REMOVE
                     </button>
                 </td>

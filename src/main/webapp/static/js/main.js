@@ -6,15 +6,14 @@ const supplierMenuButton = document.querySelector('.supplierMenuButton');
 const modalForSupplier = document.querySelector('.modalForSupplier');
 const addToCartButtons = document.querySelectorAll('.buttonAddToCart');
 const removeFromCartButtons = document.querySelectorAll('.buttonRemove');
+
 const loadButtonForCartPage = document.querySelector('#load-cart-page');
 
 HomeButton.addEventListener("click", HomePageLoad);
 categoryMenuButton.addEventListener('mouseover', ModalDisplayForCategory);
 supplierMenuButton.addEventListener('mouseover', ModalDisplayForSupplier)
 
-function addLoadForCartPage() {
-    window.location.href = '/shopping-cart';
-}
+
 
 loadButtonForCartPage.addEventListener('click', addLoadForCartPage)
 
@@ -43,15 +42,20 @@ function ModalDisplayForSupplier() {
     HideModal(headerMenu, modalForSupplier);
 }
 
+function addLoadForCartPage() {
+    window.location.href = '/shopping-cart';
+}
+
 addToCartButtons.forEach((addButton) => addButton.addEventListener('click', (event) => {
         const url = `/shopping-cart?id=${event.target.dataset.productId}`;
         fetchProduct(url);
     })
 )
 
-removeFromCartButtons.forEach((removeButton) => removeButton.addEventListener('click', (event) => {
+removeFromCartButtons.forEach((removeButton) => removeButton.addEventListener('click',  (event) => {
         const url = `/shopping-cart-remove?id=${event.target.dataset.productId}`;
         fetchProduct(url);
+        location.reload();
     })
 )
 
