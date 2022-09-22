@@ -33,6 +33,5 @@ public class ShoppingCartController extends HttpServlet {
         Gson gson = new Gson();
         PrintWriter out = response.getWriter();
 
-        out.println(gson.toJson(product));
     }
 }
