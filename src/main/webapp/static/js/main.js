@@ -5,6 +5,7 @@ const headerMenu = document.querySelector('.header-menu');
 const supplierMenuButton = document.querySelector('.supplierMenuButton');
 const modalForSupplier = document.querySelector('.modalForSupplier');
 const addToCartButtons = document.querySelectorAll('.buttonAddToCart');
+const removeFromCartButtons = document.querySelectorAll('.buttonRemove');
 
 HomeButton.addEventListener("click", HomePageLoad);
 categoryMenuButton.addEventListener('mouseover', ModalDisplayForCategory);
@@ -36,9 +37,16 @@ function ModalDisplayForSupplier() {
 }
 
 addToCartButtons.forEach((addButton) => addButton.addEventListener('click', (event) => {
-    const url = `/shopping-cart?id=${event.target.dataset.productId}`;
-    fetchProduct(url);
-    }));
+        const url = `/shopping-cart?id=${event.target.dataset.productId}`;
+        fetchProduct(url);
+    })
+)
+
+removeFromCartButtons.forEach((removeButton) => removeButton.addEventListener('click', (event) => {
+        const url = `/shopping-cart-remove?id=${event.target.dataset.productId}`;
+        fetchProduct(url);
+    })
+)
 
 
 async function fetchProduct(url) {
