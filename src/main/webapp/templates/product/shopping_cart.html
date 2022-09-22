@@ -54,13 +54,14 @@
                 <td th:text="${prod.getPrice()}">
                     PRICE
                 </td>
+                <td th:text="'Qty: ' + ${prod.getQuantity()}">
+                </td>
                 <td>
-                    QUANTITY.
-                    <button class="btn btn-success plus-minus-remove-quantity">
-                       +
+                    <button class="btn btn-success plus-minus-remove-quantity plus-button" th:attr="data-product-id=${prod.id}">
+                        +
                     </button>
-                    <button  class="btn btn-success plus-minus-remove-quantity">
-                       -
+                    <button  class="btn btn-success plus-minus-remove-quantity minus-button"  th:attr="data-product-id=${prod.id}">
+                        -
                     </button>
                 </td>
                 <td>

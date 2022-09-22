@@ -6,6 +6,8 @@ const supplierMenuButton = document.querySelector('.supplierMenuButton');
 const modalForSupplier = document.querySelector('.modalForSupplier');
 const addToCartButtons = document.querySelectorAll('.buttonAddToCart');
 const removeFromCartButtons = document.querySelectorAll('.buttonRemove');
+const plusQuantityButtons = document.querySelectorAll('.plus-button');
+const minusQuantityButtons = document.querySelectorAll('.minus-button');
 
 const loadButtonForCartPage = document.querySelector('#load-cart-page');
 
@@ -58,6 +60,23 @@ removeFromCartButtons.forEach((removeButton) => removeButton.addEventListener('c
         location.reload();
     })
 )
+
+plusQuantityButtons.forEach((plusButton) => plusButton.addEventListener('click',
+    (event) => {
+        const url = `/shopping-cart?plus=${event.target.dataset.productId}`;
+        fetchProduct(url);
+        location.reload();
+    })
+)
+
+
+minusQuantityButtons.forEach((minusButton) => minusButton.addEventListener('click',  (event) => {
+        const url = `/shopping-cart?minus=${event.target.dataset.productId}`;
+        fetchProduct(url);
+        location.reload();
+    })
+)
+
 
 
 async function fetchProduct(url) {

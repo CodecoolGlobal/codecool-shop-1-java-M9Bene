@@ -34,6 +34,19 @@ public class ShoppingCartController extends HttpServlet {
             int productId = Integer.parseInt(request.getParameter("id"));
             Product product = productDao.find(productId);
             shoppingCart.add(product);
+        } else if (request.getParameter("plus") != null) {
+            int productId = Integer.parseInt(request.getParameter("plus"));
+            Product product = productDao.find(productId);
+            product.setQuantity(product.getQuantity() + 1);
+        }
+        else if (request.getParameter("minus") != null) {
+            int productId = Integer.parseInt(request.getParameter("minus"));
+            Product product = productDao.find(productId);
+            if(product.getQuantity() <= 1){
+                shoppingCart.remove(productId);
+            }else{
+                product.setQuantity(product.getQuantity() - 1);
+            }
         }
         context.setVariable("products",shoppingCart.getAllProducts());
 
