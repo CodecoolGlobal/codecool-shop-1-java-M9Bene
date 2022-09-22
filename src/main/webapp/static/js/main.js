@@ -6,10 +6,17 @@ const supplierMenuButton = document.querySelector('.supplierMenuButton');
 const modalForSupplier = document.querySelector('.modalForSupplier');
 const addToCartButtons = document.querySelectorAll('.buttonAddToCart');
 const removeFromCartButtons = document.querySelectorAll('.buttonRemove');
+const loadButtonForCartPage = document.querySelector('#load-cart-page');
 
 HomeButton.addEventListener("click", HomePageLoad);
 categoryMenuButton.addEventListener('mouseover', ModalDisplayForCategory);
 supplierMenuButton.addEventListener('mouseover', ModalDisplayForSupplier)
+
+function addLoadForCartPage() {
+    window.location.href = '/shopping-cart';
+}
+
+loadButtonForCartPage.addEventListener('click', addLoadForCartPage)
 
 
 function HomePageLoad() {
