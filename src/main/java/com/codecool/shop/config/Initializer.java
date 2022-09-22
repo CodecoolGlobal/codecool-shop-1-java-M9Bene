@@ -47,7 +47,7 @@ public class Initializer implements ServletContextListener {
         //setting up products and printing it
         productDataStore.add(new Product("StarWars Cup", new BigDecimal("49.9"), "USD", "Far-away, still you can get it tomorrow!! Order it now!", Gifts, Kozi));
         productDataStore.add(new Product("StarGate Pillow", new BigDecimal("479"), "USD", "Gives you comfort , like stepping through the stargate", Gifts, Marci));
-        productDataStore.add(new Product("ruhák", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", Figures, Kozi));
+        productDataStore.add(new Product("Costumes", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", Figures, Kozi));
         productDataStore.add(new Product("Portal Gun", new BigDecimal("99.9"), "USD", "The great portal gun  to travel between universes", Gifts, Marci));
         productDataStore.add(new Product("Costume of Batman", new BigDecimal("89"), "USD", ".......", Costumes, Kozi));
         productDataStore.add(new Product("Costume of Spiderman", new BigDecimal("49.9"), "USD", "........", Costumes, Marci));
