@@ -53,7 +53,7 @@ public class ProductController extends HttpServlet {
         // CHOOSABLE SUPPLIERS FOR SORT
         context.setVariable("suppliers", productService.getAllProductSupplier());
 
-        engine.process("product/shopping_cart.html", context, resp.getWriter());
+        engine.process("product/index.html", context, resp.getWriter());
 
     }
 
