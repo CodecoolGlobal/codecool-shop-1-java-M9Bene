@@ -4,6 +4,7 @@ const categoryMenuButton = document.querySelector('.categoryMenuButton');
 const headerMenu = document.querySelector('.header-menu');
 const supplierMenuButton = document.querySelector('.supplierMenuButton');
 const modalForSupplier = document.querySelector('.modalForSupplier');
+const addToCartButtons = document.querySelectorAll('.buttonAddToCart');
 
 HomeButton.addEventListener("click", HomePageLoad);
 categoryMenuButton.addEventListener('mouseover', ModalDisplayForCategory);
@@ -34,5 +35,14 @@ function ModalDisplayForSupplier() {
     HideModal(headerMenu, modalForSupplier);
 }
 
+addToCartButtons.forEach((addButton) => addButton.addEventListener('click', (event) => {
+    const url = `/shopping-cart?id=${event.target.dataset.productId}`;
+    fetchProduct(url);
+    }));
 
+
+async function fetchProduct(url) {
+    const response = await fetch(url);
+    return response.json();
+}
 
