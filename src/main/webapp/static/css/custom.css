@@ -120,6 +120,7 @@ a {
     height: 30px;
     margin-right: 20px;
     fill: white;
+    cursor: pointer;
 }
 
 
@@ -147,6 +148,54 @@ a {
     top: 60px;
     border-radius: 10px;
 }
+.modalForLoginRegister {
+    width: 150px;
+    height: 90px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    right: 28px;
+    top: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modalForLogin {
+    width: 220px;
+    height: 180px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    right: 28px;
+    top: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modalForRegister {
+    width: 220px;
+    height: 180px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    right: 28px;
+    top: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modalForLoginRegister a {
+    cursor: pointer;
+}
+
+.login-inputEmail, .login-inputPassword {
+    width: 190px;
+    margin: 8px 0;
+}
+
 .modalDisplayHidden {
     display: none;
 }
@@ -181,6 +230,11 @@ a {
     border-color: #5c7987;
 
 }
+.button {
+    background-color: #6d90a1;
+    border-color: #5c7987;
+}
+
 .buttonAddToCart:hover {
     background-color: #0b5bdb;
 }
