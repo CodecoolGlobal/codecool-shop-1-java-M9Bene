@@ -34,7 +34,7 @@ function payWithCard() {
     const cardNumberField = document.createElement('input');
     cardNumberField.type = 'text';
     cardNumberField.id = 'card-number-field';
-    cardNumberField.placeholder = 'Card number';
+    cardNumberField.placeholder = 'XXXX-XXXX-XXXX-XXXX';
 
     const cardHolderLabel = document.createElement('label');
     cardHolderLabel.classList.add('payment-form-label');
@@ -52,7 +52,7 @@ function payWithCard() {
     cardExpiryLabel.textContent = 'Expiry date';
 
     const cardExpiryField = document.createElement('input');
-    cardExpiryField.type = 'text';
+    cardExpiryField.type = 'month';
     cardExpiryField.id = 'card-expiry-field';
     cardExpiryField.placeholder = 'Expiry date';
 
@@ -62,7 +62,7 @@ function payWithCard() {
     cardCvvLabel.textContent = 'CVV number';
 
     const cardCvvField = document.createElement('input');
-    cardCvvField.type = 'text';
+    cardCvvField.type = 'password';
     cardCvvField.id = 'card-cvv-field';
     cardCvvField.placeholder = 'CVV number';
 
@@ -108,7 +108,7 @@ function payWithPayPal() {
     payPalPasswordLabel.textContent = "Password";
 
     const payPalPasswordField = document.createElement('input');
-    payPalPasswordField.type = 'text';
+    payPalPasswordField.type = 'password';
     payPalPasswordField.id = 'password-field';
     payPalPasswordField.placeholder = "Password";
 
