@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Codecool"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title>MovieRelics</title>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
+    <script src="static/js/checkout.js" defer></script>
+</head>
+
+
+<body>
+<div th:replace="header_for_body.html :: copy"></div>
+
+<div class="checkout">
+    <div class="checkout-header">
+        <h1>Billing Information</h1>
+    </div>
+    <div class="customer-information">
+        <form class="billing-data-form" method="post">
+            <div class="row">
+                <div class="col">
+                    <label class="billing-form-label" for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="First name">
+                </div>
+                <div class="col">
+                    <label class="billing-form-label" for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Last name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="billing-form-label" for="email">Email address</label>
+                <input type="email" name="reg-email"  id="email" aria-describedby="emailHelp" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label class="billing-form-label" for="phone">Phone number</label>
+                <input type="text" name="phone-number" id="phone" placeholder="Phone number: +36301234567">
+            </div>
+            <div class="form-group">
+                <h5>Billing address</h5>
+                <label class="billing-form-label" for="billing-country">Country</label>
+                <input type="text" name="country" id="billing-country" placeholder="Country">
+                <label class="billing-form-label" for="billing-city">City</label>
+                <input type="text" name="city" id="billing-city" placeholder="City">
+                <label class="billing-form-label" for="billing-zip-code">Zip Code</label>
+                <input type="text" name="zip-code" id="billing-zip-code" placeholder="Zip Code">
+                <label class="billing-form-label" for="billing-address">Address</label>
+                <input type="text" name="address" id="billing-address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <h5>Shipping address</h5>
+                <div id="copy-billing-address">
+                    <input type="checkbox" id="same-as-billing">
+                    <label for="same-as-billing">Same as billing address</label>
+                </div>
+                <label class="billing-form-label" for="shipping-country">Country</label>
+                <input type="text" name="country" id="shipping-country" placeholder="Country">
+                <label class="billing-form-label" for="shipping-city">City</label>
+                <input type="text" name="city" id="shipping-city" placeholder="City">
+                <label class="billing-form-label" for="shipping-zip-code">Zip Code</label>
+                <input type="text" name="zip-code" id="shipping-zip-code" placeholder="Zip Code">
+                <label class="billing-form-label" for="shipping-address">Address</label>
+                <input type="text" name="address" id="shipping-address" placeholder="Address">
+            </div>
+
+            <button type="submit" class="btn btn-success"><a id="payment-button" href="/payment">Submit order & Pay</a></button>
+        </form>
+    </div>
+
+</div>
+
+<div th:replace="footer.html :: copy"></div>
+</body>
+</html>

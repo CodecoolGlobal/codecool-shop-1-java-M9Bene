@@ -1,3 +1,13 @@
+body {
+    background-color: white;
+}
+a {
+    color: #0b5bdb;
+}
+@font-face {
+    font-family: Potter;
+    src: url(../font/ParryHotter.ttf);
+}
 .glyphicon {
     margin-right:5px;
 }
@@ -64,23 +74,37 @@
 .header-menu {
     width: 100%;
     height: 80px;
-    background-color: #0063ba;
+    background-color: #35393b;
 }
 .logo {
 
     display: inline-flex;
 }
 .logo-text {
+    font-family: Potter, serif;
     color: white;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: bold;
     text-shadow: 2px 2px black;
     margin: 25px 0 0 25px;
+    transition: color 1s;
+}
+.logo:hover {
+    cursor: pointer;
+}
+.logo-text:hover {
+    color: #dfe620;
+    text-shadow: 1px 1px #171714;
+    transition: color 1s;
+}
+.logo-text-word {
+    color: #0b5bdb;
 }
 
 .menu-bar {
     display: inline-flex;
     color: white;
+
 }
 .account-bar {
     display: inline-flex;
@@ -96,4 +120,252 @@
     height: 30px;
     margin-right: 20px;
     fill: white;
+    cursor: pointer;
+}
+
+
+.modalForCategory {
+    width: 150px;
+    height: 180px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    left: 228px;
+    top: 60px;
+    border-radius: 10px;
+}
+.modalForSupplier {
+    width: 150px;
+    height: 180px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    left: 393px;
+    top: 60px;
+    border-radius: 10px;
+}
+.modalForLoginRegister {
+    width: 150px;
+    height: 90px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    right: 28px;
+    top: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modalForLogin {
+    width: 220px;
+    height: 180px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    right: 28px;
+    top: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modalForRegister {
+    width: 220px;
+    height: 180px;
+    background-color: #6d90a1;
+    padding-top: 18px;
+    box-shadow: 2px 2px 4px #565b63;
+    position: absolute;
+    z-index: 1;
+    right: 28px;
+    top: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modalForLoginRegister a {
+    cursor: pointer;
+}
+
+.login-inputEmail, .login-inputPassword {
+    width: 190px;
+    margin: 8px 0;
+}
+
+.modalDisplayHidden {
+    display: none;
+}
+.modalForCategory li, .modalForSupplier li {
+    padding: 10px 0;
+    list-style: none;
+}
+.modalForCategory a, .modalForSupplier a {
+    color: white;
+}
+.supplierMenuButton:hover, .categoryMenuButton:hover {
+    cursor: pointer;
+}
+
+#products {
+    margin: 35px 0;
+}
+
+.card {
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 3px #c7c7c7;
+}
+
+.card-header {
+    background-color: #35393b;
+    color: white;
+    text-align: center;
+}
+.buttonAddToCart {
+    background-color: #6d90a1;
+    border-color: #5c7987;
+
+}
+.button {
+    background-color: #6d90a1;
+    border-color: #5c7987;
+}
+
+.buttonAddToCart:hover {
+    background-color: #0b5bdb;
+}
+.card-body {
+    margin: 0 auto;
+    text-align: center;
+}
+.footer-card {
+    background-color: #35393b;
+    color: white;
+}
+
+.productImage {
+    margin: 0 auto;
+}
+
+
+/* CHECKOUT */
+.checkout {
+    text-align: center;
+    align-items: center;
+}
+
+.billing-data-form input, .billing-data-form textarea {
+    background: white;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+    width: 50%;
+}
+
+.billing-data-form div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#copy-billing-address {
+    display: flex;
+    flex-direction: row;
+    background-color: #6d90a1;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+}
+
+#checkout-button {
+    color: white;
+    text-decoration: none;
+    padding: 0.8vw;
+}
+
+
+ /* SHOPPING CART  */
+.cart-container {
+    text-align: center;
+    background-color: #cdd3d8;
+    width: 1000px;
+    margin: 30px auto;
+    border: solid 1px  #35393b;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #c7c7c7;
+}
+
+.login-header{
+    color: #575050;
+    padding: 40px 0;
+}
+
+.list-of-products{
+    padding: 20px 0;
+    text-align: center;
+    background-color: white;;
+}
+
+.end-of-list{
+    color: #060404;
+    padding: 40px 0;
+}
+
+.list-of-products table, .list-of-products th, .list-of-products td{
+    padding: 30px 20px;
+}
+
+.list-of-products table{
+ width: 100%;
+}
+
+.plus-minus-remove-quantity{
+    background-color: #6d90a1;
+    border-color: #5c7987;
+}
+
+.plus-minus-remove-quantity:hover {
+    background-color: #0b5bdb;
+}
+
+
+/* PAYMENT */
+.payment {
+    text-align: center;
+    align-items: center;
+}
+
+.payment-data-form input, .payment-data-form textarea {
+    background: white;
+    border: solid;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin: 0.6vw 0 2vw 0;
+    outline: none;
+    padding: 0.8vw;
+    width: 50%;
+}
+
+.payment-data-form div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#payment-button {
+    color: white;
+    text-decoration: none;
+    padding: 0.8vw;
 }

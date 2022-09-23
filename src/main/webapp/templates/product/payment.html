@@ -25,47 +25,31 @@
     <!-- Latest compiled and minified CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!-- End of Bootstrap components -->
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
-    <script src="static/js/main.js" defer></script>
+    <script src="static/js/payment.js" defer></script>
 </head>
 
-<body>
 
+<body>
 <div th:replace="header_for_body.html :: copy"></div>
 
-
-<div class="container">
-
-
-    <div id="products" class="row">
-        <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
-            <div class="card">
-                <img class="productImage" src="http://placehold.it/400x250/000/fff"
-                     th:height="200"
-                     th:width="250"
-                     th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt=""/>
-                <div class="card-header">
-                    <h4 class="card-title" th:text="${prod.name}">Product name</h4>
-                    <p class="card-text" th:text="${prod.description}">Product description... </p>
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
-                    </div>
-                    <div class="card-text">
-                        <a class="btn btn-success buttonAddToCart" th:attr="data-product-id=${prod.id}" href="#">Add to
-                            cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="payment">
+    <div class="payment-header">
+        <h1>Payment</h1>
+    </div>
+    <div class="payment-information">
+        <button class="btn btn-success payment-selector" id="credit-card">Card</button>
+        <button class="btn btn-success payment-selector" id="paypal">PayPal</button>
     </div>
 
 </div>
 
 <div th:replace="footer.html :: copy"></div>
-
 </body>
 </html>
